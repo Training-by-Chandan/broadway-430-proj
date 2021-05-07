@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Broadway.Projects.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -49,9 +50,20 @@ namespace Broadway.Projects
 
                 //        connection.Close();
                 //    }
+                string str = "";
+                str=str.AddDefaultValue(); //"The quick brown fox jumps over the lazy dog."
+                Console.WriteLine(str);
+                str=str.AddAnchalData(); //"Anchal Lama"
+                Console.WriteLine(str);
+                str=str.AddHimanshuData(); //"Himanshu Tiwari"
+                Console.WriteLine(str);
 
-
-                Create();
+                int i = 20;
+                i=i.Increaseby1();
+                Console.WriteLine(i);
+                i = i.IncreasebyNum(15);
+                Console.WriteLine(i);
+                //Create();
 
                 Console.WriteLine("Want to try more (y/n)?");
                 result = Console.ReadLine();
@@ -164,4 +176,9 @@ namespace Broadway.Projects
 
         }
     }
+
+
+
+    
 }
+
