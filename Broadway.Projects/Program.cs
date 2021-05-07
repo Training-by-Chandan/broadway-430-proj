@@ -18,37 +18,41 @@ namespace Broadway.Projects
             var result = "y";
             do
             {
-                //Console.WriteLine("Enter the table name:");
-                //string tableName = Console.ReadLine();
-                Console.WriteLine("Enter the Choice\n1: Display the record\n2: Create the reordd\n3: Update the record\n4: Delete the reccord\n5: Execute Stored Procedure");
-                using (SqlConnection connection =
-               new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    var choice = Console.ReadLine();
-                    switch (choice)
-                    {
-                        case "1":
-                            ReadFromTable(connection);
-                            break;
-                        case "2":
-                            InsertToTable(connection);
-                            break;
-                        case "3":
-                            UpdateToTable();
-                            break;
-                        case "4":
-                            DeleteFromTable();
-                            break;
-                        case "5":
-                            ExecuteStoredProcedure(connection);
-                            break;
-                        default:
-                            break;
-                    }
+                //    //Console.WriteLine("Enter the table name:");
+                //    //string tableName = Console.ReadLine();
+                //    Console.WriteLine("Enter the Choice\n1: Display the record\n2: Create the reordd\n3: Update the record\n4: Delete the reccord\n5: Execute Stored Procedure");
+                //    using (SqlConnection connection =
+                //   new SqlConnection(connectionString))
+                //    {
+                //        connection.Open();
+                //        var choice = Console.ReadLine();
+                //        switch (choice)
+                //        {
+                //            case "1":
+                //                ReadFromTable(connection);
+                //                break;
+                //            case "2":
+                //                InsertToTable(connection);
+                //                break;
+                //            case "3":
+                //                UpdateToTable();
+                //                break;
+                //            case "4":
+                //                DeleteFromTable();
+                //                break;
+                //            case "5":
+                //                ExecuteStoredProcedure(connection);
+                //                break;
+                //            default:
+                //                break;
+                //        }
 
-                    connection.Close();
-                }
+                //        connection.Close();
+                //    }
+
+
+                Create();
+
                 Console.WriteLine("Want to try more (y/n)?");
                 result = Console.ReadLine();
             } while (result == "y" || result == "Y");
@@ -57,6 +61,15 @@ namespace Broadway.Projects
 
         }
 
+        static void Create()
+        {
+            Console.WriteLine("Enter the name of class you want to create the object of ");
+            var str = Console.ReadLine();
+            var a = Activator.CreateInstance(Type.GetType(str));
+            //ABC abc=new "Broadway.Projects.DEF";
+            ABC abc = new ABC();
+            Console.WriteLine("The type of object is => " + a.GetType());
+        }
         private static void ReadFromTable( SqlConnection connection)
         {
             // Provide the query string with a parameter placeholder.
