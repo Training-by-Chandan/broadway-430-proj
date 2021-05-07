@@ -20,7 +20,7 @@ namespace Broadway.Projects
             {
                 //Console.WriteLine("Enter the table name:");
                 //string tableName = Console.ReadLine();
-                Console.WriteLine("Enter the Choice\n1: Display the record\n2: Create the reordd\n3: Update the record\n4: Delete the reccord\n");
+                Console.WriteLine("Enter the Choice\n1: Display the record\n2: Create the reordd\n3: Update the record\n4: Delete the reccord\n5: Execute Stored Procedure");
                 using (SqlConnection connection =
                new SqlConnection(connectionString))
                 {
@@ -39,6 +39,9 @@ namespace Broadway.Projects
                             break;
                         case "4":
                             DeleteFromTable();
+                            break;
+                        case "5":
+                            ExecuteStoredProcedure(connection);
                             break;
                         default:
                             break;
@@ -100,6 +103,37 @@ namespace Broadway.Projects
             try
             {
                 var res = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.ReadLine();
+        }
+        static void ExecuteStoredProcedure(SqlConnection connection)
+        {
+            // Provide the query string with a parameter placeholder.
+            string spName =
+                "[dbo].[TableCreateSP]";
+
+            Console.WriteLine("Enter TableName");
+            var tableName = Console.ReadLine();
+
+            // Create the Command and Parameter objects.
+            SqlCommand command = new SqlCommand(spName, connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "@tablename";
+            param.SqlDbType = System.Data.SqlDbType.NVarChar;
+            param.Value = tableName;
+            command.Parameters.Add(param);
+
+            try
+            {
+                 command.ExecuteNonQuery();
+               
             }
             catch (Exception ex)
             {
