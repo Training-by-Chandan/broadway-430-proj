@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Broadway.DesktopApp.EF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,8 +27,7 @@ namespace Broadway.DesktopApp
         private void ReadFromTable(SqlConnection connection)
         {
             // Provide the query string with a parameter placeholder.
-            string queryString =
-                "select * from Student";
+            string queryString = "select * from Students";
 
             // Create the Command and Parameter objects.
             SqlCommand command = new SqlCommand(queryString, connection);
@@ -42,9 +42,9 @@ namespace Broadway.DesktopApp
                    
                     students.Add(new Student
                     {
-                        Id = (int)reader[0],
-                        Name = reader[1].ToString(),
-                        Email = reader[2].ToString(),
+                        id = (int)reader[0],
+                        name = reader[1].ToString(),
+                        email = reader[2].ToString(),
                         Age = (int)reader[3]
                     });
 
@@ -154,11 +154,11 @@ namespace Broadway.DesktopApp
         }
     }
 
-    public class Student
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public int Age { get; set; }
-    }
+    //public class Student
+    //{
+    //    public int Id { get; set; }
+    //    public string Name { get; set; }
+    //    public string Email { get; set; }
+    //    public int Age { get; set; }
+    //}
 }
