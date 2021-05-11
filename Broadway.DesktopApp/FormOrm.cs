@@ -29,7 +29,11 @@ namespace Broadway.DesktopApp
         {
             try
             {
-                dataGridView1.DataSource = db.Students.ToList();
+                var data = db.Students.ToList();
+                
+
+              
+                dataGridView1.DataSource = data;
                 dataGridView1.Refresh();
             }
             catch (Exception ex)
@@ -63,6 +67,26 @@ namespace Broadway.DesktopApp
             {
                 
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+           
+            //studentDetail.student=
+            
+
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            var datagrid = (DataGridView)sender;
+            var selectedItem = datagrid.SelectedRows;
+            var studentId = (int)selectedItem[0].Cells[0].Value;
+
+            var student = db.Students.Find(studentId);
+            StudentDetail studentDetail = new StudentDetail(student);
+            
+            studentDetail.Show();
         }
     }
 }

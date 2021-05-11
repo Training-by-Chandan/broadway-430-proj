@@ -27,11 +27,12 @@ namespace Broadway.DesktopApp.EF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentNew> StudentNews { get; set; }
-        public virtual DbSet<StudentParent> StudentParents { get; set; }
         public virtual DbSet<Sudhan> Sudhans { get; set; }
         public virtual DbSet<ParenView> ParenViews { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentParent> StudentParents { get; set; }
+        public virtual DbSet<ParentAddress> ParentAddresses { get; set; }
     
         public virtual ObjectResult<SP_StudentParent_Result> SP_StudentParent()
         {

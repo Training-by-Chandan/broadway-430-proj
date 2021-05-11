@@ -4,12 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b6e6281b35ca49c3b886979612e7dad4" Name="Diagram1">
-        <EntityTypeShape EntityType="Broadway430Model.Student" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="b6e6281b35ca49c3b886979612e7dad4" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="Broadway430Model.StudentNew" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Broadway430Model.StudentParent" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Broadway430Model.Sudhan" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Broadway430Model.Sudhan" Width="1.5" PointX="5.375" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Broadway430Model.ParenView" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Broadway430Model.Student" Width="1.5" PointX="2.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Broadway430Model.StudentParent" Width="1.5" PointX="2.75" PointY="5.625" />
+        <AssociationConnector Association="Broadway430Model.FK_StudentParent_Student" />
+        <EntityTypeShape EntityType="Broadway430Model.ParentAddress" Width="1.5" PointX="5.125" PointY="5.5" />
+        <AssociationConnector Association="Broadway430Model.FK_ParentAddress_StudentParent" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

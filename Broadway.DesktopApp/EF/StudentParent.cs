@@ -14,9 +14,19 @@ namespace Broadway.DesktopApp.EF
     
     public partial class StudentParent
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public StudentParent()
+        {
+            this.ParentAddresses = new HashSet<ParentAddress>();
+        }
+    
         public int Id { get; set; }
         public string ParentName { get; set; }
         public Nullable<int> StudentId { get; set; }
         public Nullable<int> ParentType { get; set; }
+    
+        public virtual Student Student { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ParentAddress> ParentAddresses { get; set; }
     }
 }

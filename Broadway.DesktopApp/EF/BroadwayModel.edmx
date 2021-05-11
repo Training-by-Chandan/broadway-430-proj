@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Broadway430Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ParentAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentParentId" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="id" />
@@ -52,8 +60,33 @@ warning 6002: The table/view 'Broadway_430.dbo.ParenView' does not have a primar
           <Property Name="FatherName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MotherName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_ParentAddress_StudentParent">
+          <End Role="StudentParent" Type="Self.StudentParent" Multiplicity="0..1" />
+          <End Role="ParentAddress" Type="Self.ParentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentParent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParentAddress">
+              <PropertyRef Name="StudentParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentParent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="StudentParent" Type="Self.StudentParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentParent">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="SP_StudentParent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Broadway430ModelStoreContainer">
+          <EntitySet Name="ParentAddress" EntityType="Self.ParentAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentNew" EntityType="Self.StudentNew" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentParent" EntityType="Self.StudentParent" Schema="dbo" store:Type="Tables" />
@@ -66,20 +99,19 @@ warning 6002: The table/view 'Broadway_430.dbo.ParenView' does not have a primar
     [ParenView].[MotherName] AS [MotherName]
     FROM [dbo].[ParenView] AS [ParenView]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_ParentAddress_StudentParent" Association="Self.FK_ParentAddress_StudentParent">
+            <End Role="StudentParent" EntitySet="StudentParent" />
+            <End Role="ParentAddress" EntitySet="ParentAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentParent_Student" Association="Self.FK_StudentParent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentParent" EntitySet="StudentParent" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Broadway430Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="StudentNew">
           <Key>
             <PropertyRef Name="id" />
@@ -87,15 +119,6 @@ warning 6002: The table/view 'Broadway_430.dbo.ParenView' does not have a primar
           <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="StudentParent">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ParentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="StudentId" Type="Int32" />
-          <Property Name="ParentType" Type="Int32" />
         </EntityType>
         <EntityType Name="Sudhan">
           <Key>
@@ -117,12 +140,21 @@ warning 6002: The table/view 'Broadway_430.dbo.ParenView' does not have a primar
           <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Broadway_430Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="StudentNews" EntityType="Self.StudentNew" />
-          <EntitySet Name="StudentParents" EntityType="Self.StudentParent" />
           <EntitySet Name="Sudhans" EntityType="Self.Sudhan" />
           <EntitySet Name="ParenViews" EntityType="Self.ParenView" />
           <FunctionImport Name="SP_StudentParent" ReturnType="Collection(Broadway430Model.SP_StudentParent_Result)" />
+          <EntitySet Name="Students" EntityType="Broadway430Model.Student" />
+          <EntitySet Name="StudentParents" EntityType="Broadway430Model.StudentParent" />
+          <AssociationSet Name="FK_StudentParent_Student" Association="Broadway430Model.FK_StudentParent_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentParent" EntitySet="StudentParents" />
+          </AssociationSet>
+          <EntitySet Name="ParentAddresses" EntityType="Broadway430Model.ParentAddress" />
+          <AssociationSet Name="FK_ParentAddress_StudentParent" Association="Broadway430Model.FK_ParentAddress_StudentParent">
+            <End Role="StudentParent" EntitySet="StudentParents" />
+            <End Role="ParentAddress" EntitySet="ParentAddresses" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="SP_StudentParent_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -130,38 +162,72 @@ warning 6002: The table/view 'Broadway_430.dbo.ParenView' does not have a primar
           <Property Type="String" Name="FatherName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="MotherName" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentParents" Relationship="Broadway430Model.FK_StudentParent_Student" FromRole="Student" ToRole="StudentParent" />
+        </EntityType>
+        <EntityType Name="StudentParent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="ParentType" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Broadway430Model.FK_StudentParent_Student" FromRole="StudentParent" ToRole="Student" />
+          <NavigationProperty Name="ParentAddresses" Relationship="Broadway430Model.FK_ParentAddress_StudentParent" FromRole="StudentParent" ToRole="ParentAddress" />
+        </EntityType>
+        <Association Name="FK_StudentParent_Student">
+          <End Type="Broadway430Model.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="Broadway430Model.StudentParent" Role="StudentParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentParent">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ParentAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentParentId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StudentParent" Relationship="Broadway430Model.FK_ParentAddress_StudentParent" FromRole="ParentAddress" ToRole="StudentParent" />
+        </EntityType>
+        <Association Name="FK_ParentAddress_StudentParent">
+          <End Type="Broadway430Model.StudentParent" Role="StudentParent" Multiplicity="0..1" />
+          <End Type="Broadway430Model.ParentAddress" Role="ParentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentParent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParentAddress">
+              <PropertyRef Name="StudentParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Broadway430ModelStoreContainer" CdmEntityContainer="Broadway_430Entities">
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="Broadway430Model.Student">
-              <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StudentNews">
             <EntityTypeMapping TypeName="Broadway430Model.StudentNew">
               <MappingFragment StoreEntitySet="StudentNew">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="email" ColumnName="email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StudentParents">
-            <EntityTypeMapping TypeName="Broadway430Model.StudentParent">
-              <MappingFragment StoreEntitySet="StudentParent">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="ParentType" ColumnName="ParentType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -193,6 +259,35 @@ warning 6002: The table/view 'Broadway_430.dbo.ParenView' does not have a primar
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="Broadway430Model.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentParents">
+            <EntityTypeMapping TypeName="Broadway430Model.StudentParent">
+              <MappingFragment StoreEntitySet="StudentParent">
+                <ScalarProperty Name="ParentType" ColumnName="ParentType" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParentAddresses">
+            <EntityTypeMapping TypeName="Broadway430Model.ParentAddress">
+              <MappingFragment StoreEntitySet="ParentAddress">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="StudentParentId" ColumnName="StudentParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
