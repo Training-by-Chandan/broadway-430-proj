@@ -13,6 +13,11 @@
         <AssociationConnector Association="Broadway430Model.FK_StudentParent_Student" />
         <EntityTypeShape EntityType="Broadway430Model.ParentAddress" Width="1.5" PointX="5.125" PointY="5.5" />
         <AssociationConnector Association="Broadway430Model.FK_ParentAddress_StudentParent" />
+        <EntityTypeShape EntityType="Broadway430Model.Class" Width="1.5" PointX="9.625" PointY="0.875" />
+        <EntityTypeShape EntityType="Broadway430Model.Subject" Width="1.5" PointX="11.875" PointY="0.875" />
+        <EntityTypeShape EntityType="Broadway430Model.Teacher" Width="1.5" PointX="7.375" PointY="1.125" />
+        <AssociationConnector Association="Broadway430Model.FK_dbo_Classes_dbo_Teachers_TeacherId" />
+        <AssociationConnector Association="Broadway430Model.FK_dbo_Subjects_dbo_Classes_ClassId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

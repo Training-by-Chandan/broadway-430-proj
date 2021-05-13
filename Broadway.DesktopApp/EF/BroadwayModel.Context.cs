@@ -33,6 +33,9 @@ namespace Broadway.DesktopApp.EF
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentParent> StudentParents { get; set; }
         public virtual DbSet<ParentAddress> ParentAddresses { get; set; }
+        public virtual DbSet<Class> Classes { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
     
         public virtual ObjectResult<SP_StudentParent_Result> SP_StudentParent()
         {

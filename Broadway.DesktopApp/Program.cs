@@ -16,7 +16,7 @@ namespace Broadway.DesktopApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormOrm());
+            Application.Run(new SubjectClassTeacher());
         }
     }
 }
