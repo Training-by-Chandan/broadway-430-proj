@@ -1,5 +1,6 @@
 namespace Broadway.DesktopApp.Migrations
 {
+    using Broadway.DesktopApp.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -19,6 +20,22 @@ namespace Broadway.DesktopApp.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            var user = new User() { UserName = "Admin", Password = "Admin@123" };
+
+            var userFromDB = context.Users.FirstOrDefault(p => p.UserName == user.UserName);
+            if (userFromDB==null)
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+            else
+            {
+                userFromDB.Password = user.Password;
+                
+                context.Entry(userFromDB).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+
         }
     }
 }

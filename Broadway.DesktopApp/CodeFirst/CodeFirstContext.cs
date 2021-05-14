@@ -18,5 +18,6 @@ namespace Broadway.DesktopApp.CodeFirst
         public virtual DbSet<Subjects> Subjects { get; set; }
         public virtual DbSet<Classes> Class { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
