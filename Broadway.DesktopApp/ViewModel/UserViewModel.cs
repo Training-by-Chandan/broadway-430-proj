@@ -12,4 +12,9 @@ namespace Broadway.DesktopApp.ViewModel
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
     }
+
+    public class ForgetUserPasswordViewModel
+    {
+        public string Username { get; set; }
+    }
 }

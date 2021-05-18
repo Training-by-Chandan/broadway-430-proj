@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broadway.Projects", "Broadw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broadway.DesktopApp", "Broadway.DesktopApp\Broadway.DesktopApp.csproj", "{89957EB5-7EE6-4473-B94B-770CAE9F9DAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.Managment", "School.Managment\School.Managment.csproj", "{9E01B970-C847-4D1C-B7D9-21A26F43B1CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89957EB5-7EE6-4473-B94B-770CAE9F9DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89957EB5-7EE6-4473-B94B-770CAE9F9DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89957EB5-7EE6-4473-B94B-770CAE9F9DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E01B970-C847-4D1C-B7D9-21A26F43B1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E01B970-C847-4D1C-B7D9-21A26F43B1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E01B970-C847-4D1C-B7D9-21A26F43B1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E01B970-C847-4D1C-B7D9-21A26F43B1CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,7 +21,7 @@ namespace Broadway.DesktopApp
         {
             InitializeComponent();
 
-            ReloaddData();
+           // ReloaddData();
         }
 
         private void ReadFromTable(SqlConnection connection)
@@ -151,6 +151,14 @@ namespace Broadway.DesktopApp
                 connection.Close();
                 ReloaddData();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var testObj = new TestClass();
+            var data = testObj.FilterTeacher(textBox4.Text);
+            dataGridView1.DataSource = data;
+            dataGridView1.Refresh();
         }
     }
 

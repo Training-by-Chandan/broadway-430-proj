@@ -153,6 +153,9 @@
     <Compile Include="SubjectClassTeacher.Designer.cs">
       <DependentUpon>SubjectClassTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestClass.cs" />
+    <Compile Include="ViewModel\TeacherViewModel.cs" />
+    <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
     <EmbeddedResource Include="Form1.resx">
