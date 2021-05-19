@@ -16,5 +16,6 @@ namespace School.Managment.Data
         }
 
         public virtual DbSet<Users> User { get; set; }
+        public virtual DbSet<Exams> Exams { get; set; }
     }
 }

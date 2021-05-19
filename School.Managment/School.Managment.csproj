@@ -69,7 +69,12 @@
     <Compile Include="Migrations\202105181122585_users.designer.cs">
       <DependentUpon>202105181122585_users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105191118410_examsAdded.cs" />
+    <Compile Include="Migrations\202105191118410_examsAdded.designer.cs">
+      <DependentUpon>202105191118410_examsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Exams.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105181122585_users.resx">
       <DependentUpon>202105181122585_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191118410_examsAdded.resx">
+      <DependentUpon>202105191118410_examsAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
