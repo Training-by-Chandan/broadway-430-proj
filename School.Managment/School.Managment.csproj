@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +61,11 @@
     <Compile Include="Common\Md5Hash.cs" />
     <Compile Include="Common\UserType.cs" />
     <Compile Include="Data\SchoolContext.cs" />
+    <Compile Include="ERD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERD.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +133,13 @@
     <EmbeddedResource Include="UI\Teacher\TeacherMdi.resx">
       <DependentUpon>TeacherMdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="ERD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ERD.edmx.diagram">
+      <DependentUpon>ERD.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
