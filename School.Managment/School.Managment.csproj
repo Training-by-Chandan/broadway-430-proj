@@ -197,6 +197,9 @@
     <EmbeddedResource Include="UI\Admin\AdminMdi.resx">
       <DependentUpon>AdminMdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Admin\StudentCreateForm.resx">
+      <DependentUpon>StudentCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Student\StudentMDi.resx">
       <DependentUpon>StudentMDi.cs</DependentUpon>
     </EmbeddedResource>
