@@ -105,5 +105,15 @@ namespace School.Managment.UI.Admin
                 childForm.Close();
             }
         }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

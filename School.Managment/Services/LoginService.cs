@@ -24,7 +24,7 @@ namespace School.Managment.Services
                     return result;
                 }
 
-                if (model.HashedPassword==existingUser.Password)
+                if (model.HashedPassword==existingUser.HashedPassword)
                 {
                     result.Status = true;
                     result.UserType = existingUser.UserType;

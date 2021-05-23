@@ -12,4 +12,11 @@ namespace School.Managment.Common
         Teacher,
         Admin
     }
+
+    public enum Gender
+    {
+        Male,
+        Female,
+        Others
+    }
 }

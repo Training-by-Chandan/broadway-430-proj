@@ -1,6 +1,6 @@
 ﻿namespace School.Managment.Migrations
 {
-    using School.Managment.Models;
+    using School.Managment.Data;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,6 +14,7 @@
             AutomaticMigrationsEnabled = false;
         }
 
+
         protected override void Seed(School.Managment.Data.SchoolContext db)
         {
             //  This method will be called after migrating to the latest version.
@@ -22,10 +23,10 @@
             //  to avoid creating duplicate seed data.
 
             #region Admin
-            var admin = new Users() {
+            var admin = new User() {
                 Id = Guid.Parse("f000991c-12bc-44ea-9fef-0f62a938c1d8"),
                 Email = "admin@admin.com",
-                Password = Md5Hash.Create("Admin@123"),
+                HashedPassword = Md5Hash.Create("Admin@123"),
                 Username = "admin",
                 UserType = Common.UserType.Admin
                   
@@ -40,18 +41,18 @@
             else
             {
                 existingAdmin.Email=admin.Email;
-                existingAdmin.Password = admin.Password;
+                existingAdmin.HashedPassword = admin.HashedPassword;
                 db.Entry(existingAdmin).State = EntityState.Modified;
                 db.SaveChanges();
             }
             #endregion
 
             #region Student
-            var student = new Users()
+            var student = new User()
             {
                 Id = Guid.Parse("f000991c-12bc-44ea-9fef-0f62a938c1d9"),
                 Email = "student@student.com",
-                Password = Md5Hash.Create("Student@123"),
+                HashedPassword = Md5Hash.Create("Student@123"),
                 Username = "student",
                 UserType = Common.UserType.Student
 
@@ -66,7 +67,7 @@
             else
             {
                 exitingStudent.Email = student.Email;
-                exitingStudent.Password = student.Password;
+                exitingStudent.HashedPassword = student.HashedPassword;
                 db.Entry(exitingStudent).State = EntityState.Modified;
                 db.SaveChanges();
             }
@@ -74,11 +75,11 @@
 
             #region Teacher
 
-            var teacher = new Users()
+            var teacher = new User()
             {
                 Id = Guid.Parse("f000991c-12bc-44ea-9fef-0f62a938c1d0"),
                 Email = "teacher@teacher.com",
-                Password = Md5Hash.Create("Teacher@123"),
+                HashedPassword = Md5Hash.Create("Teacher@123"),
                 Username = "teacher",
                 UserType = Common.UserType.Teacher
 
@@ -92,7 +93,7 @@
             else
             {
                 exitingTeacher.Email = teacher.Email;
-                exitingTeacher.Password = teacher.Password;
+                exitingTeacher.HashedPassword = teacher.HashedPassword;
                 db.Entry(exitingTeacher).State = EntityState.Modified;
                 db.SaveChanges();
             }
