@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,32 +60,108 @@
   <ItemGroup>
     <Compile Include="Common\Md5Hash.cs" />
     <Compile Include="Common\UserType.cs" />
+    <Compile Include="Data\AcademicYear.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attendance.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Classes.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ClassSubject.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ClassSubjectTeacher.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ExamClassSubject.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Exams.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ExamsStudents.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Parents.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\SchoolContext.cs" />
+    <Compile Include="Data\ERD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERD.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SchoolModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SchoolModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Student.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StudentClass.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StudentParents.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Subject.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Teacher.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\User.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105181122585_users.cs" />
-    <Compile Include="Migrations\202105181122585_users.designer.cs">
-      <DependentUpon>202105181122585_users.cs</DependentUpon>
+    <Compile Include="Migrations\202105231152305_updatedModels.cs" />
+    <Compile Include="Migrations\202105231152305_updatedModels.designer.cs">
+      <DependentUpon>202105231152305_updatedModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105191118410_examsAdded.cs" />
-    <Compile Include="Migrations\202105191118410_examsAdded.designer.cs">
-      <DependentUpon>202105191118410_examsAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202105231158457_gender.cs" />
+    <Compile Include="Migrations\202105231158457_gender.designer.cs">
+      <DependentUpon>202105231158457_gender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105231212200_boolean.cs" />
+    <Compile Include="Migrations\202105231212200_boolean.designer.cs">
+      <DependentUpon>202105231212200_boolean.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Exams.cs" />
-    <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LoginService.cs" />
+    <Compile Include="Services\StudentService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="UI\Admin\AdminMdi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Admin\AdminMdi.Designer.cs">
       <DependentUpon>AdminMdi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\StudentCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\StudentCreateForm.Designer.cs">
+      <DependentUpon>StudentCreateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Student\StudentMDi.cs">
       <SubType>Form</SubType>
@@ -97,16 +175,21 @@
     <Compile Include="UI\Teacher\TeacherMdi.Designer.cs">
       <DependentUpon>TeacherMdi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Admin\StudentDashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginRequestViewModel.cs" />
     <Compile Include="ViewModels\ResponseViewModel.cs" />
+    <Compile Include="ViewModels\Admin\StudentUserViewModel.cs" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105181122585_users.resx">
-      <DependentUpon>202105181122585_users.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105231152305_updatedModels.resx">
+      <DependentUpon>202105231152305_updatedModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191118410_examsAdded.resx">
-      <DependentUpon>202105191118410_examsAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105231158457_gender.resx">
+      <DependentUpon>202105231158457_gender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105231212200_boolean.resx">
+      <DependentUpon>202105231212200_boolean.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,12 +203,25 @@
     <EmbeddedResource Include="UI\Admin\AdminMdi.resx">
       <DependentUpon>AdminMdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Admin\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Admin\StudentCreateForm.resx">
+      <DependentUpon>StudentCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Student\StudentMDi.resx">
       <DependentUpon>StudentMDi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Teacher\TeacherMdi.resx">
       <DependentUpon>TeacherMdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Data\ERD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\ERD.edmx.diagram">
+      <DependentUpon>ERD.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,6 +235,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\SchoolModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SchoolModel.Context.cs</LastGenOutput>
+      <DependentUpon>ERD.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\SchoolModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SchoolModel.cs</LastGenOutput>
+      <DependentUpon>ERD.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

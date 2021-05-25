@@ -10,7 +10,7 @@ namespace School.Managment.Services
 {
     public static class LoginService
     {
-        public static SchoolContext db = new SchoolContext();
+        private static SchoolContext db = new SchoolContext();
 
         public static LoginResponseViewModel Login(LoginRequestViewModel model)
         {
@@ -24,7 +24,7 @@ namespace School.Managment.Services
                     return result;
                 }
 
-                if (model.HashedPassword==existingUser.Password)
+                if (model.HashedPassword==existingUser.HashedPassword)
                 {
                     result.Status = true;
                     result.UserType = existingUser.UserType;
