@@ -68,16 +68,9 @@ namespace School.Managment.UI.Admin
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
+       
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
-
+       
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -113,7 +106,16 @@ namespace School.Managment.UI.Admin
 
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            StudentCreateForm frm = new StudentCreateForm();
+            frm.MdiParent = this;
+            frm.Show();
+        }
 
+        private void AdminMdi_Load(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.MdiParent = this;
+            dashboard.Show();
         }
     }
 }

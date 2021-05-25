@@ -1,6 +1,7 @@
 ﻿using School.Managment.Common;
 using School.Managment.Data;
 using School.Managment.ViewModels;
+using School.Managment.ViewModels.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace School.Managment.Services
 {
     public static class UserService
     {
-        public static SchoolContext db = new SchoolContext();
+        private static SchoolContext db = new SchoolContext();
 
         public static StudentUserResponseViewModel CreateStudentUser(StudentUserViewModel model)
         {
@@ -21,7 +22,14 @@ namespace School.Managment.Services
                 model.StudentId = Guid.NewGuid();
                 model.UserId = Guid.NewGuid();
 
-                var user = new User { Email=model.Email, Username= model.Username, Id=model.UserId, HashedPassword=Md5Hash.Create(model.Password), Status=true, UserType= UserType.Student };
+                var user = new User { 
+                    Email=model.Email, 
+                    Username= model.Username, 
+                    Id=model.UserId, 
+                    HashedPassword=Md5Hash.Create(model.Password), 
+                    Status=true, 
+                    UserType= UserType.Student 
+                };
 
                 db.User.Add(user);
 
@@ -43,7 +51,7 @@ namespace School.Managment.Services
                 response.UserId = user.Id;
                 response.StudentId = student.Id;
                 response.Status = true;
-                response.Message = "All Good";
+                response.Message = "Student and User Created";
             }
             catch (Exception ex)
             {

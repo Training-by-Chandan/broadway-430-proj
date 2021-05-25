@@ -15,8 +15,8 @@ namespace School.Managment.Common
 
     public enum Gender
     {
-        Male,
-        Female,
-        Others
+        Male =0,
+        Female=1,
+        Others=2
     }
 }

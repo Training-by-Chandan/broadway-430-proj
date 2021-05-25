@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School.Managment.ViewModels
+namespace School.Managment.ViewModels.Admin
 {
     public class StudentUserViewModel
     {

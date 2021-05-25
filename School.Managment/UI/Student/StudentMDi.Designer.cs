@@ -292,7 +292,7 @@ namespace School.Managment.UI.Student
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
             this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
-            this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
+           
             // 
             // statusBarToolStripMenuItem
             // 
