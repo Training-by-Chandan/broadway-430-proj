@@ -117,5 +117,10 @@ namespace School.Managment.UI.Admin
             dashboard.MdiParent = this;
             dashboard.Show();
         }
+
+        private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
