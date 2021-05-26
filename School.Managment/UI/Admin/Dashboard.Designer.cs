@@ -51,6 +51,7 @@ namespace School.Managment.UI.Admin
             this.grdStudent.RowTemplate.Height = 24;
             this.grdStudent.Size = new System.Drawing.Size(260, 159);
             this.grdStudent.TabIndex = 0;
+            this.grdStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdStudent_CellContentClick);
             // 
             // panel1
             // 

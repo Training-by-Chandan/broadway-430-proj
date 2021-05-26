@@ -22,6 +22,7 @@ namespace School.Managment.UI.Admin
         private void Dashboard_Load(object sender, EventArgs e)
         {
             refreshStudentData();
+            refreshTeacherData();
         }
 
         void refreshStudentData()
@@ -31,5 +32,19 @@ namespace School.Managment.UI.Admin
             grdStudent.Refresh();
 
         }
+
+        private void grdStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        void refreshTeacherData()
+        {
+            var teachertData = TeacherService.GetAllTeachers();
+            grdteacher.DataSource = teachertData;
+            grdteacher.Refresh();
+
+        }
+
+
     }
 }

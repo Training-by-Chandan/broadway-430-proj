@@ -107,7 +107,7 @@ namespace School.Managment.UI.Admin
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StudentCreateForm frm = new StudentCreateForm();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
@@ -120,7 +120,8 @@ namespace School.Managment.UI.Admin
 
         private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            TeacherCreateForm frm = new TeacherCreateForm();
+            frm.Show();
         }
     }
 }

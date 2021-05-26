@@ -53,6 +53,7 @@ namespace School.Managment.UI.Admin
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblvalidaion = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,7 @@ namespace School.Managment.UI.Admin
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSubmit
             // 
@@ -76,6 +78,7 @@ namespace School.Managment.UI.Admin
             this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // panel2
             // 
@@ -304,12 +307,22 @@ namespace School.Managment.UI.Admin
             this.label1.TabIndex = 0;
             this.label1.Text = "Teacher Information";
             // 
+            // lblvalidaion
+            // 
+            this.lblvalidaion.AutoSize = true;
+            this.lblvalidaion.ForeColor = System.Drawing.Color.Red;
+            this.lblvalidaion.Location = new System.Drawing.Point(54, 284);
+            this.lblvalidaion.Name = "lblvalidaion";
+            this.lblvalidaion.Size = new System.Drawing.Size(0, 13);
+            this.lblvalidaion.TabIndex = 8;
+            // 
             // TeacherCreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblvalidaion);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.panel2);
@@ -321,6 +334,7 @@ namespace School.Managment.UI.Admin
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -350,5 +364,6 @@ namespace School.Managment.UI.Admin
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblvalidaion;
     }
 }

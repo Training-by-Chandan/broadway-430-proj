@@ -74,5 +74,22 @@ namespace School.Managment
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                //var checkbox = (CheckBox)sender;
+               // checkbox.Text = "Show Password";
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                //var checkbox = (CheckBox)sender;
+                //checkbox.Text = "Hide Password";
+            }
+
+        }
     }
 }
