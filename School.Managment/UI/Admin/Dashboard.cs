@@ -16,6 +16,7 @@ namespace School.Managment.UI.Admin
         public Dashboard()
         {
             InitializeComponent();
+            
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
