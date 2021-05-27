@@ -113,7 +113,10 @@ namespace School.Managment.UI.Admin
 
         private void AdminMdi_Load(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
+            //Dashboard dashboard = new Dashboard();
+            //dashboard.MdiParent = this;
+            //dashboard.Show();
+            HomeDashboard dashboard = new HomeDashboard();
             dashboard.MdiParent = this;
             dashboard.Show();
         }
@@ -123,5 +126,38 @@ namespace School.Managment.UI.Admin
             TeacherCreateForm frm = new TeacherCreateForm();
             frm.Show();
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("V 0.1 - Developed by Broadway gang");
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Select create and choose between teacher adn student that you want to create.");
+        }
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.MdiParent = this;
+            dashboard.Show();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HomeDashboard dashboard = new HomeDashboard();
+            dashboard.MdiParent = this;
+            dashboard.Show();
+        }
+
+        
     }
 }

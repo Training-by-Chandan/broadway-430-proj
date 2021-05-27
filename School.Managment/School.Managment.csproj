@@ -161,6 +161,12 @@
     <Compile Include="UI\Admin\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Admin\HomeDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\HomeDashboard.Designer.cs">
+      <DependentUpon>HomeDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Admin\StudentCreateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     <EmbeddedResource Include="UI\Admin\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Admin\HomeDashboard.resx">
+      <DependentUpon>HomeDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Admin\StudentCreateForm.resx">
       <DependentUpon>StudentCreateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +272,7 @@
       <LastGenOutput>SchoolModel.cs</LastGenOutput>
       <DependentUpon>ERD.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\HIGHSCHOOL bigcopycroppedtwo.jpg" />
     <None Include="Resources\elementary-school-abstract-person-in-open-book-pages-8568ld.png" />
   </ItemGroup>
   <ItemGroup>

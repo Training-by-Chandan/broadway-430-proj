@@ -15,11 +15,18 @@ namespace School.Managment.Services
         {
             var data = db.Teachers.ToList().Select(p => new ViewModels.Admin.TeacherDashboardViewModel()
             {
-                TeacherId = p.Id,
-                TeacherFullName = string.IsNullOrWhiteSpace(p.MName) ? $"{p.FName} {p.LName}" : $"{p.FName} {p.MName} {p.LName}"
-            });
+                //TeacherId = p.Id,
+                TeacherFullName = string.IsNullOrWhiteSpace(p.MName) ? $"{p.FName} {p.LName}" : $"{p.FName} {p.MName} {p.LName}",
+                Address = p.Address
+
+            }); ;
 
             return data.ToList();
+        }
+
+        public static Teacher GetTeacherByUserId(Guid id)
+        {
+            return db.Teachers.FirstOrDefault(p => p.UserId == id);
         }
     }
 }

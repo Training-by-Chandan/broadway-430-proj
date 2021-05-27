@@ -15,11 +15,21 @@ namespace School.Managment.Services
         {
             var data = db.Students.ToList().Select(p => new ViewModels.Admin.StudentDashboardViewModel()
             {
-                StudentId = p.Id,
-                StudentFullName = string.IsNullOrWhiteSpace(p.MName) ? $"{p.FName} {p.LName}" : $"{p.FName} {p.MName} {p.LName}"
-            });
+                //StudentId = p.Id,
+                StudentFullName = string.IsNullOrWhiteSpace(p.MName) ? $"{p.FName} {p.LName}" : $"{p.FName} {p.MName} {p.LName}",
+                Address = p.Address,
+                Email=p.User.Email,
+                Username=p.User.Username
+            }) ;
+
+            //var userdata = db.User.ToList().Select(p => new ViewModels.Admin.StudentDashboardViewModel()
+            //{
+            //    Email = p.Email,
+            //    Username = p.Username
+            //}) ;
 
             return data.ToList();
+            
         }
     }
 }

@@ -8,7 +8,10 @@ namespace School.Managment.ViewModels.Admin
 {
     public class StudentDashboardViewModel
     {
-        public Guid StudentId { get; set; }
+        //public Guid StudentId { get; set; }
         public string StudentFullName { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
     }
 }

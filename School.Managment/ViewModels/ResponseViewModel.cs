@@ -16,5 +16,6 @@ namespace School.Managment.ViewModels
     public class LoginResponseViewModel : ResponseViewModel
     {
         public UserType UserType { get; set; }
+        public Guid Userid { get; set; }
     }
 }

@@ -14,9 +14,22 @@ namespace School.Managment.UI.Teacher
     {
         private int childFormNumber = 0;
 
-        public TeacherMdi()
+        private Guid teacherUserid { get; set; }
+        public Guid Teacherid
+        { get 
+            {
+                return this.teacherUserid;
+             } 
+        }
+
+        private School.Managment.Data.Teacher teacherUServViewModel { get; set; }
+
+        public TeacherMdi(Guid teacherid)
         {
             InitializeComponent();
+            this.teacherUserid = teacherid;
+            this.teacherUServViewModel = Services.TeacherService.GetTeacherByUserId(this.teacherUserid);
+            this.Text = $"Welcome {this.teacherUServViewModel.FName}";
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -68,15 +81,15 @@ namespace School.Managment.UI.Teacher
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
+        //private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    toolStrip.Visible = toolBarToolStripMenuItem.Checked;
+        //}
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
+        //private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+        //}
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -105,5 +118,23 @@ namespace School.Managment.UI.Teacher
                 childForm.Close();
             }
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        void ReloadTeacherGrid()
+        {
+            //dataGridView1.DataSource=
+        }
+
     }
 }

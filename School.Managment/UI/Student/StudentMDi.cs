@@ -69,10 +69,10 @@ namespace School.Managment.UI.Student
         }
 
       
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
+        //private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+        //}
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -100,6 +100,13 @@ namespace School.Managment.UI.Student
             {
                 childForm.Close();
             }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace School.Managment.UI.Admin
         public Dashboard()
         {
             InitializeComponent();
+
             
         }
 
@@ -45,6 +46,10 @@ namespace School.Managment.UI.Admin
 
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            refreshStudentData();
+            refreshTeacherData();
+        }
     }
 }

@@ -35,6 +35,7 @@ namespace School.Managment.UI.Admin
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.grdteacher = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdStudent)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -44,23 +45,24 @@ namespace School.Managment.UI.Admin
             // grdStudent
             // 
             this.grdStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdStudent.Location = new System.Drawing.Point(11, 54);
-            this.grdStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grdStudent.Location = new System.Drawing.Point(2, 54);
+            this.grdStudent.Margin = new System.Windows.Forms.Padding(2);
             this.grdStudent.Name = "grdStudent";
             this.grdStudent.RowHeadersWidth = 51;
             this.grdStudent.RowTemplate.Height = 24;
-            this.grdStudent.Size = new System.Drawing.Size(260, 159);
+            this.grdStudent.Size = new System.Drawing.Size(343, 159);
             this.grdStudent.TabIndex = 0;
             this.grdStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdStudent_CellContentClick);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.grdStudent);
             this.panel1.Location = new System.Drawing.Point(16, 33);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 222);
+            this.panel1.Size = new System.Drawing.Size(395, 222);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -75,12 +77,13 @@ namespace School.Managment.UI.Admin
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.grdteacher);
-            this.panel2.Location = new System.Drawing.Point(540, 33);
+            this.panel2.Location = new System.Drawing.Point(468, 33);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 222);
+            this.panel2.Size = new System.Drawing.Size(427, 222);
             this.panel2.TabIndex = 2;
             // 
             // label2
@@ -96,22 +99,33 @@ namespace School.Managment.UI.Admin
             // grdteacher
             // 
             this.grdteacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdteacher.Location = new System.Drawing.Point(11, 54);
+            this.grdteacher.Location = new System.Drawing.Point(2, 54);
             this.grdteacher.Margin = new System.Windows.Forms.Padding(2);
             this.grdteacher.Name = "grdteacher";
             this.grdteacher.RowHeadersWidth = 51;
             this.grdteacher.RowTemplate.Height = 24;
-            this.grdteacher.Size = new System.Drawing.Size(260, 159);
+            this.grdteacher.Size = new System.Drawing.Size(368, 159);
             this.grdteacher.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(336, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 609);
+            this.ClientSize = new System.Drawing.Size(968, 609);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Dashboard";
@@ -136,5 +150,6 @@ namespace School.Managment.UI.Admin
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView grdteacher;
+        private System.Windows.Forms.Button button1;
     }
 }

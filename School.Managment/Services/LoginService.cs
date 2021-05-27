@@ -27,6 +27,7 @@ namespace School.Managment.Services
                 if (model.HashedPassword==existingUser.HashedPassword)
                 {
                     result.Status = true;
+                    result.Userid = existingUser.Id;
                     result.UserType = existingUser.UserType;
                     result.Message = "All Good";
                 }

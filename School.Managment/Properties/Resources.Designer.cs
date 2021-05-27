@@ -69,5 +69,15 @@ namespace School.Managment.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HIGHSCHOOL_bigcopycroppedtwo {
+            get {
+                object obj = ResourceManager.GetObject("HIGHSCHOOL bigcopycroppedtwo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

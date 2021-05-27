@@ -51,7 +51,7 @@ namespace School.Managment
                         studentDashboard.Show();
                         break;
                     case Common.UserType.Teacher:
-                        UI.Teacher.TeacherMdi teacherDashboard = new UI.Teacher.TeacherMdi();
+                        UI.Teacher.TeacherMdi teacherDashboard = new UI.Teacher.TeacherMdi(loginresult.Userid);
                         teacherDashboard.Show();
                         break;
                     case Common.UserType.Admin:
