@@ -60,66 +60,17 @@
   <ItemGroup>
     <Compile Include="Common\Md5Hash.cs" />
     <Compile Include="Common\UserType.cs" />
-    <Compile Include="Data\AcademicYear.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Attendance.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Classes.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ClassSubject.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ClassSubjectTeacher.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ExamClassSubject.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Exams.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ExamsStudents.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Parents.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\SchoolContext.cs" />
     <Compile Include="Data\ERD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ERD.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\SchoolModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolModel.Context.tt</DependentUpon>
+    <Compile Include="Data\SchoolContext.cs" />
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Data\SchoolModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Student.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\StudentClass.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\StudentParents.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Subject.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Teacher.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\User.cs">
-      <DependentUpon>SchoolModel.tt</DependentUpon>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -141,7 +92,22 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Exams.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\AcademicYear.cs" />
+    <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Classes.cs" />
+    <Compile Include="Models\ClassSubject.cs" />
+    <Compile Include="Models\ClassSubjectTeacher.cs" />
+    <Compile Include="Models\ERD.Designer.cs" />
+    <Compile Include="Models\ExamClassSubject.cs" />
+    <Compile Include="Models\Exams.cs" />
+    <Compile Include="Models\ExamsStudents.cs" />
+    <Compile Include="Models\Parents.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentClass.cs" />
+    <Compile Include="Models\StudentParents.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LoginService.cs" />
@@ -187,6 +153,9 @@
     <Compile Include="ViewModels\LoginRequestViewModel.cs" />
     <Compile Include="ViewModels\ResponseViewModel.cs" />
     <Compile Include="ViewModels\Admin\StudentUserViewModel.cs" />
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,18 +215,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\SchoolModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SchoolModel.Context.cs</LastGenOutput>
-      <DependentUpon>ERD.edmx</DependentUpon>
-    </Content>
-    <Content Include="Data\SchoolModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SchoolModel.cs</LastGenOutput>
-      <DependentUpon>ERD.edmx</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
