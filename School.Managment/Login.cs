@@ -47,7 +47,7 @@ namespace School.Managment
                 switch (loginresult.UserType)
                 {
                     case Common.UserType.Student:
-                        UI.Student.StudentMDi studentDashboard = new UI.Student.StudentMDi();
+                        UI.Student.StudentMDi studentDashboard = new UI.Student.StudentMDi(loginresult.Userid);
                         studentDashboard.Show();
                         break;
                     case Common.UserType.Teacher:

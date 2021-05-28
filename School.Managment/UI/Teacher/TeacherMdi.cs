@@ -30,6 +30,8 @@ namespace School.Managment.UI.Teacher
             this.teacherUserid = teacherid;
             this.teacherUServViewModel = Services.TeacherService.GetTeacherByUserId(this.teacherUserid);
             this.Text = $"Welcome {this.teacherUServViewModel.FName}";
+            textboxReload();
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -131,10 +133,16 @@ namespace School.Managment.UI.Teacher
 
         }
 
-        void ReloadTeacherGrid()
+        void textboxReload()
         {
-            //dataGridView1.DataSource=
+            textBox1.Text = $"{this.teacherUServViewModel.FName} {this.teacherUServViewModel.MName} {this.teacherUServViewModel.LName}";
+            textBox2.Text = $"{this.teacherUServViewModel.Address}";
+            textBox3.Text = this.teacherUServViewModel.User.Email;
+            textBox4.Text = this.teacherUServViewModel.User.Username;
+            
+
         }
 
+        
     }
 }

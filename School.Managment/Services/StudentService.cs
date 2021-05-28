@@ -22,14 +22,13 @@ namespace School.Managment.Services
                 Username=p.User.Username
             }) ;
 
-            //var userdata = db.User.ToList().Select(p => new ViewModels.Admin.StudentDashboardViewModel()
-            //{
-            //    Email = p.Email,
-            //    Username = p.Username
-            //}) ;
-
+            
             return data.ToList();
             
+        }
+        public static Student GetStudentByUserId(Guid id)
+        {
+            return db.Students.FirstOrDefault(p => p.UserId == id);
         }
     }
 }

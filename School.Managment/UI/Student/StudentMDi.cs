@@ -13,10 +13,26 @@ namespace School.Managment.UI.Student
     public partial class StudentMDi : Form
     {
         private int childFormNumber = 0;
+        private Guid studentUserid { get; set; }
+        public Guid studentid
+        {
+            get
+            {
+                return this.studentUserid;
+            }
+        }
 
-        public StudentMDi()
+        private School.Managment.Data.Student StudentUserViewModel { get; set; }
+
+        public StudentMDi(Guid studentid)
         {
             InitializeComponent();
+            this.studentUserid = studentid;
+            this.StudentUserViewModel = Services.StudentService.GetStudentByUserId(this.studentUserid);
+            this.Text = $"Welcome {this.StudentUserViewModel.FName}";
+            textboxReload();
+
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -107,6 +123,15 @@ namespace School.Managment.UI.Student
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+        void textboxReload()
+        {
+            textBox1.Text = $"{this.StudentUserViewModel.FName} {this.StudentUserViewModel.MName} {this.StudentUserViewModel.LName}";
+            textBox2.Text = $"{this.StudentUserViewModel.Address}";
+            textBox3.Text = this.StudentUserViewModel.User.Email;
+            textBox4.Text = this.StudentUserViewModel.User.Username;
+
+
         }
     }
 }
