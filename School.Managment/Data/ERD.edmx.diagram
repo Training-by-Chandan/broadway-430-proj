@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc9578b127b040058ab18379504e27e7" Name="Diagram1" ZoomLevel="60" >
+        <EntityTypeShape EntityType="ERD.User" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.Student" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.Teacher" Width="1.5" PointX="0.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.Parents" Width="1.5" PointX="9.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.StudentParents" Width="1.5" PointX="6.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.Classes" Width="1.5" PointX="12.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.Subject" Width="1.5" PointX="14.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.ClassSubject" Width="1.5" PointX="9.125" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERD.ClassSubjectTeacher" Width="1.5" PointX="0.5" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="ERD.UserStudent" />
+        <AssociationConnector Association="ERD.UserTeacher" />
+        <AssociationConnector Association="ERD.ParentsStudentParents" />
+        <AssociationConnector Association="ERD.StudentStudentParents" />
+        <AssociationConnector Association="ERD.ClassesClassSubject" />
+        <AssociationConnector Association="ERD.SubjectClassSubject" />
+        <AssociationConnector Association="ERD.TeacherClassSubjectTeacher" />
+        <EntityTypeShape EntityType="ERD.StudentClass" Width="1.5" PointX="7.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="ERD.StudentStudentClass" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ERD.ClassesStudentClass" />
+        <EntityTypeShape EntityType="ERD.Attendance" Width="1.5" PointX="6.875" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="ERD.StudentAttendance" />
+        <AssociationConnector Association="ERD.TeacherAttendance" />
+        <AssociationConnector Association="ERD.TeacherClasses" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ERD.AcademicYear" Width="1.5" PointX="15.375" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="ERD.AcademicYearSubject" />
+        <AssociationConnector Association="ERD.AcademicYearClasses" />
+        <AssociationConnector Association="ERD.AcademicYearAttendance" />
+        <AssociationConnector Association="ERD.ClassSubjectTeacherClassSubject" />
+        <EntityTypeShape EntityType="ERD.Exams" Width="1.5" PointX="11.375" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="ERD.AcademicYearExams" />
+        <EntityTypeShape EntityType="ERD.ExamClassSubject" Width="1.5" PointX="5.125" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="ERD.ExamsExamClassSubject" />
+        <AssociationConnector Association="ERD.ClassSubjectExamClassSubject" />
+        <EntityTypeShape EntityType="ERD.ExamsStudents" Width="1.5" PointX="2" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="ERD.StudentExamsStudents" />
+        <AssociationConnector Association="ERD.ExamClassSubjectExamsStudents" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ERD.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ERDTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ERD" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ERDContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="ERD.User" />
+          <EntitySet Name="Students" EntityType="ERD.Student" />
+          <EntitySet Name="Teachers" EntityType="ERD.Teacher" />
+          <EntitySet Name="Parents" EntityType="ERD.Parents" />
+          <EntitySet Name="StudentParents" EntityType="ERD.StudentParents" />
+          <EntitySet Name="Classes" EntityType="ERD.Classes" />
+          <EntitySet Name="Subjects" EntityType="ERD.Subject" />
+          <EntitySet Name="ClassSubjects" EntityType="ERD.ClassSubject" />
+          <EntitySet Name="ClassSubjectTeachers" EntityType="ERD.ClassSubjectTeacher" />
+          <AssociationSet Name="UserStudent" Association="ERD.UserStudent">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="UserTeacher" Association="ERD.UserTeacher">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="ParentsStudentParents" Association="ERD.ParentsStudentParents">
+            <End Role="Parents" EntitySet="Parents" />
+            <End Role="StudentParents" EntitySet="StudentParents" />
+          </AssociationSet>
+          <AssociationSet Name="StudentStudentParents" Association="ERD.StudentStudentParents">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentParents" EntitySet="StudentParents" />
+          </AssociationSet>
+          <AssociationSet Name="ClassesClassSubject" Association="ERD.ClassesClassSubject">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="ClassSubject" EntitySet="ClassSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="SubjectClassSubject" Association="ERD.SubjectClassSubject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="ClassSubject" EntitySet="ClassSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherClassSubjectTeacher" Association="ERD.TeacherClassSubjectTeacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeachers" />
+          </AssociationSet>
+          <EntitySet Name="StudentClasses" EntityType="ERD.StudentClass" />
+          <AssociationSet Name="StudentStudentClass" Association="ERD.StudentStudentClass">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentClass" EntitySet="StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="ClassesStudentClass" Association="ERD.ClassesStudentClass">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="StudentClass" EntitySet="StudentClasses" />
+          </AssociationSet>
+          <EntitySet Name="Attendances" EntityType="ERD.Attendance" />
+          <AssociationSet Name="StudentAttendance" Association="ERD.StudentAttendance">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherAttendance" Association="ERD.TeacherAttendance">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherClasses" Association="ERD.TeacherClasses">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Classes" EntitySet="Classes" />
+          </AssociationSet>
+          <EntitySet Name="AcademicYears" EntityType="ERD.AcademicYear" />
+          <AssociationSet Name="AcademicYearSubject" Association="ERD.AcademicYearSubject">
+            <End Role="AcademicYear" EntitySet="AcademicYears" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="AcademicYearClasses" Association="ERD.AcademicYearClasses">
+            <End Role="AcademicYear" EntitySet="AcademicYears" />
+            <End Role="Classes" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="AcademicYearAttendance" Association="ERD.AcademicYearAttendance">
+            <End Role="AcademicYear" EntitySet="AcademicYears" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="ClassSubjectTeacherClassSubject" Association="ERD.ClassSubjectTeacherClassSubject">
+            <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeachers" />
+            <End Role="ClassSubject" EntitySet="ClassSubjects" />
+          </AssociationSet>
+          <EntitySet Name="Exams" EntityType="ERD.Exams" />
+          <AssociationSet Name="AcademicYearExams" Association="ERD.AcademicYearExams">
+            <End Role="AcademicYear" EntitySet="AcademicYears" />
+            <End Role="Exams" EntitySet="Exams" />
+          </AssociationSet>
+          <EntitySet Name="ExamClassSubjects" EntityType="ERD.ExamClassSubject" />
+          <AssociationSet Name="ExamsExamClassSubject" Association="ERD.ExamsExamClassSubject">
+            <End Role="Exams" EntitySet="Exams" />
+            <End Role="ExamClassSubject" EntitySet="ExamClassSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="ClassSubjectExamClassSubject" Association="ERD.ClassSubjectExamClassSubject">
+            <End Role="ClassSubject" EntitySet="ClassSubjects" />
+            <End Role="ExamClassSubject" EntitySet="ExamClassSubjects" />
+          </AssociationSet>
+          <EntitySet Name="ExamsStudents" EntityType="ERD.ExamsStudents" />
+          <AssociationSet Name="StudentExamsStudents" Association="ERD.StudentExamsStudents">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="ExamsStudents" EntitySet="ExamsStudents" />
+          </AssociationSet>
+          <AssociationSet Name="ExamClassSubjectExamsStudents" Association="ERD.ExamClassSubjectExamsStudents">
+            <End Role="ExamClassSubject" EntitySet="ExamClassSubjects" />
+            <End Role="ExamsStudents" EntitySet="ExamsStudents" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Students" Relationship="ERD.UserStudent" FromRole="User" ToRole="Student" />
+          <NavigationProperty Name="Teachers" Relationship="ERD.UserTeacher" FromRole="User" ToRole="Teacher" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="HashedPassword" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="UserType" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="ERD.UserStudent" FromRole="Student" ToRole="User" />
+          <NavigationProperty Name="StudentParents" Relationship="ERD.StudentStudentParents" FromRole="Student" ToRole="StudentParents" />
+          <NavigationProperty Name="StudentClasses" Relationship="ERD.StudentStudentClass" FromRole="Student" ToRole="StudentClass" />
+          <NavigationProperty Name="Attendances" Relationship="ERD.StudentAttendance" FromRole="Student" ToRole="Attendance" />
+          <Property Name="FName" Type="String" Nullable="false" />
+          <Property Name="MName" Type="String" Nullable="false" />
+          <Property Name="LName" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" />
+          <Property Name="IsActive" Type="String" Nullable="false" />
+          <NavigationProperty Name="ExamsStudents" Relationship="ERD.StudentExamsStudents" FromRole="Student" ToRole="ExamsStudents" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="ERD.UserTeacher" FromRole="Teacher" ToRole="User" />
+          <NavigationProperty Name="ClassSubjectTeachers" Relationship="ERD.TeacherClassSubjectTeacher" FromRole="Teacher" ToRole="ClassSubjectTeacher" />
+          <NavigationProperty Name="Attendances" Relationship="ERD.TeacherAttendance" FromRole="Teacher" ToRole="Attendance" />
+          <Property Name="FName" Type="String" Nullable="false" />
+          <Property Name="MName" Type="String" Nullable="false" />
+          <Property Name="LName" Type="String" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="ERD.TeacherClasses" FromRole="Teacher" ToRole="Classes" />
+          <Property Name="IsActive" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="StudentParents" Relationship="ERD.ParentsStudentParents" FromRole="Parents" ToRole="StudentParents" />
+          <Property Name="FName" Type="String" Nullable="false" />
+          <Property Name="MName" Type="String" Nullable="false" />
+          <Property Name="LName" Type="String" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" />
+          <Property Name="IsActive" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentParents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Parent" Relationship="ERD.ParentsStudentParents" FromRole="StudentParents" ToRole="Parents" />
+          <NavigationProperty Name="Student" Relationship="ERD.StudentStudentParents" FromRole="StudentParents" ToRole="Student" />
+          <Property Name="StudentId" Type="String" Nullable="false" />
+          <Property Name="ParentId" Type="String" Nullable="false" />
+          <Property Name="ParentType" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ClassSubjects" Relationship="ERD.ClassesClassSubject" FromRole="Classes" ToRole="ClassSubject" />
+          <NavigationProperty Name="StudentClasses" Relationship="ERD.ClassesStudentClass" FromRole="Classes" ToRole="StudentClass" />
+          <Property Name="ClassName" Type="String" Nullable="false" />
+          <Property Name="RoomNumber" Type="String" Nullable="false" />
+          <Property Name="ClassTeacherId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Teacher" Relationship="ERD.TeacherClasses" FromRole="Classes" ToRole="Teacher" />
+          <Property Name="IsActive" Type="String" Nullable="false" />
+          <NavigationProperty Name="AcademicYear" Relationship="ERD.AcademicYearClasses" FromRole="Classes" ToRole="AcademicYear" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ClassSubjects" Relationship="ERD.SubjectClassSubject" FromRole="Subject" ToRole="ClassSubject" />
+          <Property Name="SubjectName" Type="String" Nullable="false" />
+          <Property Name="SubjectCode" Type="String" Nullable="false" />
+          <Property Name="IsActive" Type="String" Nullable="false" />
+          <NavigationProperty Name="AcademicYear" Relationship="ERD.AcademicYearSubject" FromRole="Subject" ToRole="AcademicYear" />
+        </EntityType>
+        <EntityType Name="ClassSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Class" Relationship="ERD.ClassesClassSubject" FromRole="ClassSubject" ToRole="Classes" />
+          <NavigationProperty Name="Subject" Relationship="ERD.SubjectClassSubject" FromRole="ClassSubject" ToRole="Subject" />
+          <Property Name="ClassId" Type="String" Nullable="false" />
+          <Property Name="TSubjectId" Type="String" Nullable="false" />
+          <Property Name="AcademicYearId" Type="String" Nullable="false" />
+          <NavigationProperty Name="ClassSubjectTeacher" Relationship="ERD.ClassSubjectTeacherClassSubject" FromRole="ClassSubject" ToRole="ClassSubjectTeacher" />
+          <NavigationProperty Name="ExamClassSubjects" Relationship="ERD.ClassSubjectExamClassSubject" FromRole="ClassSubject" ToRole="ExamClassSubject" />
+        </EntityType>
+        <EntityType Name="ClassSubjectTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Teacher" Relationship="ERD.TeacherClassSubjectTeacher" FromRole="ClassSubjectTeacher" ToRole="Teacher" />
+          <NavigationProperty Name="ClassSubjects" Relationship="ERD.ClassSubjectTeacherClassSubject" FromRole="ClassSubjectTeacher" ToRole="ClassSubject" />
+          <Property Name="TeacherId" Type="String" Nullable="false" />
+          <Property Name="ClassSubjectId" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="UserStudent">
+          <End Type="ERD.User" Role="User" Multiplicity="1" />
+          <End Type="ERD.Student" Role="Student" Multiplicity="0..1" />
+        </Association>
+        <Association Name="UserTeacher">
+          <End Type="ERD.User" Role="User" Multiplicity="1" />
+          <End Type="ERD.Teacher" Role="Teacher" Multiplicity="0..1" />
+        </Association>
+        <Association Name="ParentsStudentParents">
+          <End Type="ERD.Parents" Role="Parents" Multiplicity="1" />
+          <End Type="ERD.StudentParents" Role="StudentParents" Multiplicity="*" />
+        </Association>
+        <Association Name="StudentStudentParents">
+          <End Type="ERD.Student" Role="Student" Multiplicity="1" />
+          <End Type="ERD.StudentParents" Role="StudentParents" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassesClassSubject">
+          <End Type="ERD.Classes" Role="Classes" Multiplicity="1" />
+          <End Type="ERD.ClassSubject" Role="ClassSubject" Multiplicity="*" />
+        </Association>
+        <Association Name="SubjectClassSubject">
+          <End Type="ERD.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="ERD.ClassSubject" Role="ClassSubject" Multiplicity="*" />
+        </Association>
+        <Association Name="TeacherClassSubjectTeacher">
+          <End Type="ERD.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="ERD.ClassSubjectTeacher" Role="ClassSubjectTeacher" Multiplicity="*" />
+        </Association>
+        <EntityType Name="StudentClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Student" Relationship="ERD.StudentStudentClass" FromRole="StudentClass" ToRole="Student" />
+          <NavigationProperty Name="Class" Relationship="ERD.ClassesStudentClass" FromRole="StudentClass" ToRole="Classes" />
+          <Property Name="StudentId" Type="String" Nullable="false" />
+          <Property Name="TeacherId" Type="String" Nullable="false" />
+          <Property Name="AcademicYearId" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="StudentStudentClass">
+          <End Type="ERD.Student" Role="Student" Multiplicity="1" />
+          <End Type="ERD.StudentClass" Role="StudentClass" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassesStudentClass">
+          <End Type="ERD.Classes" Role="Classes" Multiplicity="1" />
+          <End Type="ERD.StudentClass" Role="StudentClass" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="StudentId" Type="String" Nullable="false" />
+          <Property Name="TeacherId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="ERD.StudentAttendance" FromRole="Attendance" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="ERD.TeacherAttendance" FromRole="Attendance" ToRole="Teacher" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <NavigationProperty Name="AcademicYear" Relationship="ERD.AcademicYearAttendance" FromRole="Attendance" ToRole="AcademicYear" />
+        </EntityType>
+        <Association Name="StudentAttendance">
+          <End Type="ERD.Student" Role="Student" Multiplicity="1" />
+          <End Type="ERD.Attendance" Role="Attendance" Multiplicity="*" />
+        </Association>
+        <Association Name="TeacherAttendance">
+          <End Type="ERD.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="ERD.Attendance" Role="Attendance" Multiplicity="*" />
+        </Association>
+        <Association Name="TeacherClasses">
+          <End Type="ERD.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="ERD.Classes" Role="Classes" Multiplicity="*" />
+        </Association>
+        <EntityType Name="AcademicYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YearName" Type="String" Nullable="false" />
+          <Property Name="StartDate" Type="String" Nullable="false" />
+          <Property Name="EndDate" Type="String" Nullable="false" />
+          <Property Name="IsActive" Type="String" Nullable="false" />
+          <NavigationProperty Name="Subjects" Relationship="ERD.AcademicYearSubject" FromRole="AcademicYear" ToRole="Subject" />
+          <NavigationProperty Name="Classes" Relationship="ERD.AcademicYearClasses" FromRole="AcademicYear" ToRole="Classes" />
+          <NavigationProperty Name="Attendances" Relationship="ERD.AcademicYearAttendance" FromRole="AcademicYear" ToRole="Attendance" />
+          <NavigationProperty Name="Exams" Relationship="ERD.AcademicYearExams" FromRole="AcademicYear" ToRole="Exams" />
+        </EntityType>
+        <Association Name="AcademicYearSubject">
+          <End Type="ERD.AcademicYear" Role="AcademicYear" Multiplicity="1" />
+          <End Type="ERD.Subject" Role="Subject" Multiplicity="*" />
+        </Association>
+        <Association Name="AcademicYearClasses">
+          <End Type="ERD.AcademicYear" Role="AcademicYear" Multiplicity="1" />
+          <End Type="ERD.Classes" Role="Classes" Multiplicity="*" />
+        </Association>
+        <Association Name="AcademicYearAttendance">
+          <End Type="ERD.AcademicYear" Role="AcademicYear" Multiplicity="1" />
+          <End Type="ERD.Attendance" Role="Attendance" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassSubjectTeacherClassSubject">
+          <End Type="ERD.ClassSubjectTeacher" Role="ClassSubjectTeacher" Multiplicity="1" />
+          <End Type="ERD.ClassSubject" Role="ClassSubject" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Exams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamName" Type="String" Nullable="false" />
+          <Property Name="AcademicYearId" Type="String" Nullable="false" />
+          <NavigationProperty Name="AcademicYear" Relationship="ERD.AcademicYearExams" FromRole="Exams" ToRole="AcademicYear" />
+          <NavigationProperty Name="ExamClassSubjects" Relationship="ERD.ExamsExamClassSubject" FromRole="Exams" ToRole="ExamClassSubject" />
+        </EntityType>
+        <Association Name="AcademicYearExams">
+          <End Type="ERD.AcademicYear" Role="AcademicYear" Multiplicity="1" />
+          <End Type="ERD.Exams" Role="Exams" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ExamClassSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamId" Type="String" Nullable="false" />
+          <Property Name="SubjectClassId" Type="String" Nullable="false" />
+          <Property Name="ExamDate" Type="String" Nullable="false" />
+          <NavigationProperty Name="Exam" Relationship="ERD.ExamsExamClassSubject" FromRole="ExamClassSubject" ToRole="Exams" />
+          <NavigationProperty Name="ClassSubject" Relationship="ERD.ClassSubjectExamClassSubject" FromRole="ExamClassSubject" ToRole="ClassSubject" />
+          <NavigationProperty Name="ExamsStudents" Relationship="ERD.ExamClassSubjectExamsStudents" FromRole="ExamClassSubject" ToRole="ExamsStudents" />
+        </EntityType>
+        <Association Name="ExamsExamClassSubject">
+          <End Type="ERD.Exams" Role="Exams" Multiplicity="1" />
+          <End Type="ERD.ExamClassSubject" Role="ExamClassSubject" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassSubjectExamClassSubject">
+          <End Type="ERD.ClassSubject" Role="ClassSubject" Multiplicity="1" />
+          <End Type="ERD.ExamClassSubject" Role="ExamClassSubject" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ExamsStudents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="String" Nullable="false" />
+          <Property Name="ExamDetailsId" Type="String" Nullable="false" />
+          <Property Name="MarksObtained" Type="String" Nullable="false" />
+          <Property Name="FullMarks" Type="String" Nullable="false" />
+          <Property Name="PassMarks" Type="String" Nullable="false" />
+          <Property Name="ExamType" Type="String" Nullable="false" />
+          <Property Name="AttendanceStatus" Type="String" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="ERD.StudentExamsStudents" FromRole="ExamsStudents" ToRole="Student" />
+          <NavigationProperty Name="ExamClassSubject" Relationship="ERD.ExamClassSubjectExamsStudents" FromRole="ExamsStudents" ToRole="ExamClassSubject" />
+        </EntityType>
+        <Association Name="StudentExamsStudents">
+          <End Type="ERD.Student" Role="Student" Multiplicity="1" />
+          <End Type="ERD.ExamsStudents" Role="ExamsStudents" Multiplicity="*" />
+        </Association>
+        <Association Name="ExamClassSubjectExamsStudents">
+          <End Type="ERD.ExamClassSubject" Role="ExamClassSubject" Multiplicity="1" />
+          <End Type="ERD.ExamsStudents" Role="ExamsStudents" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ERD" />
+        <Alias Key="Target" Value="ERD.Store" />
+        <EntityContainerMapping CdmEntityContainer="ERDContainer" StorageEntityContainer="ERDTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

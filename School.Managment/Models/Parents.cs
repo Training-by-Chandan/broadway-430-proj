@@ -9,25 +9,27 @@
 
 namespace School.Managment.Data
 {
+    using School.Managment.Common;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public partial class Exams
+    
+    public partial class Parents
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Exams()
+        public Parents()
         {
-            this.ExamClassSubjects = new HashSet<ExamClassSubject>();
+            this.StudentParents = new HashSet<StudentParents>();
         }
     
         public Guid Id { get; set; }
-        public string ExamName { get; set; }
-        public Guid AcademicYearId { get; set; }
+        public string FName { get; set; }
+        public string MName { get; set; }
+        public string LName { get; set; }
+        public Gender Gender { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool IsActive { get; set; }
     
-        [ForeignKey("AcademicYearId")]
-        public virtual AcademicYear AcademicYear { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExamClassSubject> ExamClassSubjects { get; set; }
+        public virtual ICollection<StudentParents> StudentParents { get; set; }
     }
 }

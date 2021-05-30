@@ -13,21 +13,24 @@ namespace School.Managment.Data
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class Exams
+    public partial class ExamClassSubject
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Exams()
+        public ExamClassSubject()
         {
-            this.ExamClassSubjects = new HashSet<ExamClassSubject>();
+            this.ExamsStudents = new HashSet<ExamsStudents>();
         }
     
         public Guid Id { get; set; }
-        public string ExamName { get; set; }
-        public Guid AcademicYearId { get; set; }
+        public Guid ExamId { get; set; }
+        public Guid SubjectClassId { get; set; }
+        public DateTime ExamDate { get; set; }
     
-        [ForeignKey("AcademicYearId")]
-        public virtual AcademicYear AcademicYear { get; set; }
+        [ForeignKey("ExamId")]
+        public virtual Exams Exam { get; set; }
+        [ForeignKey("SubjectClassId")]
+        public virtual ClassSubject ClassSubject { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExamClassSubject> ExamClassSubjects { get; set; }
+        public virtual ICollection<ExamsStudents> ExamsStudents { get; set; }
     }
 }
